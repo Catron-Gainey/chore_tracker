@@ -11,8 +11,9 @@ from flask_app.models import user # import entire file, rather than class, to av
 # Read Users Controller
 
 @app.route('/')
+@app.route('/reg/log')
 def index():
-    return render_template('index.html')
+    return render_template('reg_log.html')
 
 
 # Update Users Controller

@@ -1,8 +1,3 @@
-# Change nothing in this file.
-# Do not delete the comments
-# Use the comments to help with trouble shooting
-    # Bool object not iterable? Read below, where do you find a bool/boolean?
-
 
 # a cursor is the object we use to interact with the database
 import pymysql.cursors
@@ -12,7 +7,7 @@ class MySQLConnection:
 # change the user and password as needed
         connection = pymysql.connect(host = 'localhost',
                                     user = 'root', 
-                                    password = 'password', 
+                                    password = 'root', 
                                     db = db,
                                     charset = 'utf8mb4',
                                     cursorclass = pymysql.cursors.DictCursor,
