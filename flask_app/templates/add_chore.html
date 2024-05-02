@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='js/script.js') }}" defer></script> -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <title>Add A Job</title>
+</head>
+<body>
+    <Div>
+        <div>
+            <div style="display: block;">
+                {% with messages = get_flashed_messages() %}<!-- declare a variable called messages -->
+                    {% if messages %}<!-- check if there are any messages -->
+                        {% for message in messages %}<!-- loop through the messages -->
+                            <p>{{message}}</p><!-- display each message in a paragraph tag -->
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+            <div class="d-flex justify-content-between" style="margin-bottom: 100px; background-color: lightgray">
+                <h2>Add a Job</h2> <a href="/dashboard" style=" font-size: 25px;">Back</a> <a href="/log/out" style="font-size: 25px;">Log Out</a>
+            </div>
+            <div style = "max-width: fit-content; margin-left: auto; margin-right: auto;">
+                <Form action='/create/chore' method='post'>
+                    <div class="mb-3">
+                        <label>
+                            Title
+                            <input style="display: block;" type="text" name="name" value="">
+                        </label>
+                    </div>
+                    <div class="mb-3">
+                        <label>
+                            Description
+                            <textarea style="display: block;" id="" name="description" rows="4" cols="50"></textarea><br><br>
+                        </label>
+                    </div>
+                    <div class="mb-3">
+                        <label>
+                            Location
+                            <textarea style="display: block;" id="" name="location" rows="4" cols="50"></textarea><br><br>
+                        </label>
+                    </div>
+                    <div>
+                        <input type='submit' class="btn btn-primary" value='Submit' style="display: block;">
+                    </div>
+                </Form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>

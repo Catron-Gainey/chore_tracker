@@ -24,8 +24,8 @@ class Chore:
 
     @classmethod
     def save_chore(cls, data):
-        query = """INSERT INTO chores (name, description, location, user_id,)
-                VALUES (%(name)s, %(description)s, %(location)s, %(user_id)s,);"""
+        query = """INSERT INTO chores (name, description, location, user_id)
+                VALUES (%(name)s, %(description)s, %(location)s, %(user_id)s);"""
         result = connectToMySQL(cls.db).query_db(query,data)
         return result
     
@@ -107,27 +107,21 @@ class Chore:
         return connectToMySQL(cls.db).query_db(query,user_data)
     
     @classmethod
-    def delete_choree(cls, id):
+    def delete_chore(cls, id):
         query  = "DELETE FROM chores WHERE id = %(id)s;"
         result = connectToMySQL(cls.db).query_db(query, {"id":id})
         return result
     
-    # @staticmethod
-    # def validate_recipe(data):
-    #     is_valid = True # assume this is true
-    #     if len(data['name']) < 3:
-    #         flash("Name can't be less than 3 characters.")
-    #         is_valid = False
-    #     if len(data['description']) < 3:
-    #         flash("Description can't be less than 3 characters.")
-    #         is_valid = False
-    #     if len(data['instructions']) < 3:
-    #         flash("Instructions can't be less than 3 characters.")
-    #         is_valid = False
-    #     if 'under_30' not in data:
-    #         flash("under 30 field cant be blank.")
-    #         is_valid = False
-    #     if len(data['date_made']) < 1:
-    #         flash("date made cant be blank")
-    #         is_valid = False
-    #     return is_valid
+    @staticmethod
+    def validate_chore(data):
+        is_valid = True # assume this is true
+        if len(data['name']) < 3:
+            flash("Name can't be less than 3 characters.")
+            is_valid = False
+        if len(data['description']) < 10:
+            flash("Description can't be less than 10 characters.")
+            is_valid = False
+        if len(data['location']) < 1:
+            flash("location can't be blank.")
+            is_valid = False
+        return is_valid

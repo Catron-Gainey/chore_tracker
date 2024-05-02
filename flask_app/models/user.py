@@ -62,22 +62,22 @@ class User:
             user.chores.append(chore.Chore( chore_data))
         return user
 
-    # @staticmethod
-    # def validate_user(user):
-    #     is_valid = True # assume this is true
-    #     if len(user['first_name']) < 2:
-    #         flash("first name can't be less than 2 characters.")
-    #         is_valid = False
-    #     if len(user['last_name']) < 2:
-    #         flash("first name can't be less than 2 characters.")
-    #         is_valid = False
-    #     if len(user['password']) < 8:
-    #         flash("password can't be less than 8 characters")
-    #         is_valid = False
-    #     if user['confirm_password'] != user['password']:
-    #         flash("password doesn't match confirm password")
-    #         is_valid = False
-    #     if not EMAIL_REGEX.match(user['email']): 
-    #         flash("Invalid email address!")
-    #         is_valid = False
-    #     return is_valid
+    @staticmethod
+    def validate_user(user):
+        is_valid = True # assume this is true
+        if len(user['first_name']) < 2:
+            flash("first name can't be less than 2 characters.")
+            is_valid = False
+        if len(user['last_name']) < 2:
+            flash("first name can't be less than 2 characters.")
+            is_valid = False
+        if len(user['password']) < 8:
+            flash("password can't be less than 8 characters")
+            is_valid = False
+        if user['confirm_password'] != user['password']:
+            flash("password doesn't match confirm password")
+            is_valid = False
+        if not EMAIL_REGEX.match(user['email']): 
+            flash("Invalid email address!")
+            is_valid = False
+        return is_valid
